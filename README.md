@@ -30,12 +30,12 @@ After creating the application, enter the new directory and run it using the fol
 quarkus dev
 ```
 
-or alternatively, if `Maven` is installed and configured
+or alternatively, if `Maven` is installed and configured:
 
 ```shell script
 mvn compile quarkus:dev
 ```
-> **_NOTE:_** To configure maven, follow the README file bundled with the maven or this guide https://phoenixnap.com/kb/install-maven-windows.
+> **_NOTE:_** To configure maven, follow the README file bundled with the maven download or this guide for Windows https://phoenixnap.com/kb/install-maven-windows.
 
 Your Quarkus app is now running at localhost:8080. For the purposes of this challenge neither the IP nor the Port were changed.
 
@@ -92,7 +92,7 @@ It became clear that the way larger numbers were calculated was by slowly reduci
 
 Caching was an important step since by saving the result of already calculated `l(n)` the processing load and time required would be cut **tremendously**.
 
-The best way to store data like this is by using a `Map` where the '*keys*' are the values of *n* and the '*values*' are the values of `l(n)`. This variable is called `cache`
+The best way to store data like this is by using a `Map` where the '*keys*' are the values of *n* and the '*values*' are the values of `l(n)`. This variable is called `cache`.
 
 ### Using recursive functions
 
@@ -111,7 +111,7 @@ When creating the algorithm to calculate the sequence, the method of the class `
 10        cacheValue(n, result);
 11        return result;
 12    }
-13  }
+13 }
 ```
 
 This method is being used recursively.

@@ -7,6 +7,7 @@ import java.util.Map;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.core.MediaType;
 
 @Path("/labseq")
@@ -46,22 +47,22 @@ public class Labseq {
     }
 
     @GET
-    @Produces(MediaType.TEXT_PLAIN)
+    @Produces(MediaType.APPLICATION_JSON)
     @Path("/{number}")
     /**
      * Starts the calculation of the Lab Sequence of specified number. Result is calculated with BigInteger.
      * @param number number passed through the endpoint
      * @return string to print to the browser window
      */
-    public String calculateFunction(String number) {
+    public Response calculateFunction(String number) {
         try {
             int n = Integer.valueOf(number);
             BigInteger result = breakdown(n);
 
-            return String.format("\nL(%d) = %d\n", n, result);
+            return Response.ok(String.format("L(%d) = %d\n", n, result)).build();
         } 
         catch (NumberFormatException e) {
-            return "Invalid Number Inserted";
+            return Response.ok("Invalid Number Inserted").build();
         }
     }
 } 
