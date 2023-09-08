@@ -23,8 +23,10 @@ After installing the CLI, the next step is to create an Application. This can be
 ```shell script
 quarkus create labseq
 ```
+> [!NOTE]
+> Not required if the application is already created.
 
-After creating the application, enter the directory `labseq` and run it using the following command:
+After creating the application or if it is already created, enter the directory `labseq` and run it using the following command:
 
 ```shell script
 quarkus dev
