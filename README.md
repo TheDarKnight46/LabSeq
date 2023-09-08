@@ -12,6 +12,8 @@ Following the guide provided in the website: https://quarkus.io/get-started/, th
 iex "& { $(iwr https://ps.jbang.dev) } trust add https://repo1.maven.org/maven2/io/quarkus/quarkus-cli/"
 ```
 
+Followed by:
+
 ```shell script
 iex "& { $(iwr https://ps.jbang.dev) } app install --fresh --force quarkus@quarkusio"
 ```
@@ -25,6 +27,10 @@ quarkus dev
 ```
 > [!IMPORTANT]
 > This is the only step required to execute this application.
+
+Inserting a number in the number box of the GUI and pressing `Calculate` will make a call to the service and the result will appear.
+
+Example: 10000 in the number box and then hit `Calculate`.
 
 ## Backend - Creating the Quarkus application
 
@@ -51,8 +57,6 @@ mvn compile quarkus:dev
 > To configure maven, follow the README file bundled with the maven download or this guide for Windows https://phoenixnap.com/kb/install-maven-windows.
 
 The Quarkus app is now running at http://localhost:8080.
-
-Inserting the number in the number box of the GUI and pressing `Calculate` will make a call to the service and the result will appear.
 
 ## Frontend - Creating GUI using HTML and JavaScript
 
