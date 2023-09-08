@@ -83,7 +83,7 @@ The only purpose of this GUI is to call the service via its **endpoint**.
 It is presented when accessing http://localhost:8080.
 
 
-== From this point on, the thought process used while developing will be explained. The Solution found is at the end ==
+==From this point on, the thought process used while developing will be explained. The Solution found is at the end==
 
 ## Creating the Java code
 
@@ -108,7 +108,7 @@ To understand how the sequence works, firstly some by hand calculations were per
 
 Caching was an important step since by saving the result of already calculated `l(n)` the processing load and time required would be cut **tremendously**.
 
-The best way to store data like this is by using a `Map` where the '*keys*' are the values of `n` and the '*values*' are the result of `l(n)`. This variable is called `cache`.
+The best way to store data like this is by using a **Map** where the '*keys*' are the values of `n` and the '*values*' are the result of `l(n)`. This variable is called `cache`.
 
 ### Using recursive functions
 
@@ -139,11 +139,13 @@ It first checks if `n<=3`, as seen in line 3.
 
 > **_NOTE:_** This formula implementation can be seen in line 9. Since its a BigInteger it is required to use the add() method to perform a sum.
 
+When a result is calculated, the `cacheValue(int key, BigInteger value)` method is used to add it to the `cache` **Map**.
+
 ### Caching data
 
 When the recursive function ends, it goes back and adds the value to the map using its respective *keys* and *values*.
 
-For this to work though, it requires the method `breakdown` to check the `Map` every time it is executed, looking within the `cache` for the respective *key*.
+For this to work though, it requires the method `breakdown(int n)` to check the **Map** every time it is executed, looking within the `cache` for the respective *key*.
 
 If it finds the *key*, then the *value* is returned immediately, otherwise the execution continues as previously explained.
 
