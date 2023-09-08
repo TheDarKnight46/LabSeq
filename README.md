@@ -56,6 +56,22 @@ Inserting the number in the number box of the GUI and pressing `Calculate` will 
 
 HTML and JavaScript were used to create the frontend of the service, directly in the `index.html` file.
 
+```html
+<h2>Labseq Challenge</h2>
+
+<p>Insert number to calculate (Must be positive and integer)</p>
+<input id="num" type="number" style="margin-right: 2ch;">
+<button onclick="calculateNum()">Calculate</button>
+
+<script>
+function calculateNum() {
+    var num = document.getElementById("num").value;
+    var solution = "labseq/".concat(num);
+    window.location.pathname = solution;
+}
+</script>
+```
+
 The only purpose of this GUI is to call the service via its **endpoint**.
 
 It is presented when accessing http://localhost:8080.
