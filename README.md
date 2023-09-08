@@ -18,7 +18,7 @@ Followed by:
 iex "& { $(iwr https://ps.jbang.dev) } app install --fresh --force quarkus@quarkusio"
 ```
 
-## Running Application
+## Running the Application
 
 Download the code in the repository. After that, open a terminal within that folder and run the following command.  
 
