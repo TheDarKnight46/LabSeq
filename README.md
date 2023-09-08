@@ -96,22 +96,22 @@ The best way to store data like this is by using a `Map` where the '*keys*' are 
 
 ### Using recursive functions
 
-When creating the algorithm to calculate the sequence, the method of the class `Labseq` called `breakdown(long n)` is used.
+When creating the algorithm to calculate the sequence, the method of the class `Labseq` called `breakdown(int n)` is used.
 
 ```java
-private BigInteger breakdown(int n) {
-    if (n <= 3)
-        return (n % 2 == 0) ? BigInteger.valueOf(0) : BigInteger.valueOf(1); 
-    else {
-        BigInteger cachedNum = cache.get(n);
-        if (cachedNum != null)
-            return cachedNum;   
-
-        BigInteger result = breakdown(n-4).add(breakdown(n-3)); 
-        cacheValue(n, result);
-        return result;
-    }
-}
+1  private BigInteger breakdown(int n) {
+2     if (n <= 3)
+3         return (n % 2 == 0) ? BigInteger.valueOf(0) : BigInteger.valueOf(1); 
+4     else {
+5         BigInteger cachedNum = cache.get(n);
+6         if (cachedNum != null)
+7             return cachedNum;   
+8
+9         BigInteger result = breakdown(n-4).add(breakdown(n-3)); 
+10        cacheValue(n, result);
+11        return result;
+12    }
+13  }
 ```
 
 This method is being used recursively.
