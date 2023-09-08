@@ -47,7 +47,7 @@ public class Labseq {
     }
 
     @GET
-    @Produces(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.TEXT_PLAIN)
     @Path("/{number}")
     /**
      * Starts the calculation of the Lab Sequence of specified number. Result is calculated with BigInteger.
@@ -57,12 +57,15 @@ public class Labseq {
     public Response calculateFunction(String number) {
         try {
             int n = Integer.valueOf(number);
+            if (n<0)
+                return Response.status(Response.Status.EXPECTATION_FAILED).build();
+
             BigInteger result = breakdown(n);
 
-            return Response.ok(String.format("L(%d) = %d\n", n, result)).build();
+            return Response.ok(String.format("L(%d) = %d", n, result)).build();
         } 
         catch (NumberFormatException e) {
-            return Response.ok("Invalid Number Inserted").build();
+            return Response.status(Response.Status.EXPECTATION_FAILED).build();
         }
     }
 } 

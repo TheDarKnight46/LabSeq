@@ -6,7 +6,7 @@ If you want to learn more about Quarkus, please visit its website: https://quark
 
 The following text represents the steps taken to reach the final product.
 
-## Backend - Installing Quarkus
+## Installing Quarkus
 
 Following the guide provided in the website: https://quarkus.io/get-started/, the Quarkus CLI was installed for Powershell using:
 
@@ -18,13 +18,15 @@ iex "& { $(iwr https://ps.jbang.dev) } trust add https://repo1.maven.org/maven2/
 iex "& { $(iwr https://ps.jbang.dev) } app install --fresh --force quarkus@quarkusio"
 ```
 
+## Backend - Quarkus
+
 After installing the CLI, the next step is to create an Application. This can be done by using the following command:
 
 ```shell script
-quarkus create AppName
+quarkus create backend
 ```
 
-After creating the application, enter the new directory and run it using the following command:
+After creating the application, enter the directory `backend` and run it using the following command:
 
 ```shell script
 quarkus dev
@@ -37,35 +39,15 @@ mvn compile quarkus:dev
 ```
 > **_NOTE:_** To configure maven, follow the README file bundled with the maven download or this guide for Windows https://phoenixnap.com/kb/install-maven-windows.
 
-Your Quarkus app is now running at localhost:8080. For the purposes of this challenge neither the IP nor the Port were changed.
+The Quarkus app is now running at http://localhost:8080. For the purposes of this challenge neither the IP nor the Port were changed.
 
-## Frontend - Installing Angular and Nodejs
+## Frontend - HTML and JavaScript
 
+HTML and JavaScript were used to create the frontend of the service, .
 
+The only purpose of this GUI is to call the service via its **endpoint**
 
-## Project Structure
-
-The project was structured using this template provided in https://marcelkliemannel.com/articles/2021/bundling-quarkus-with-web-frameworks-like-angular-react-vue-js-in-maven/
-
-```
-project/
-├── pom.xml
-├── frontend/
-│   ├── app/
-│   │   ├── src/
-│   │   ├── public/
-│   │   │   ├── ...
-│   │   │   └── index.html
-│   │   ├── ...
-│   │   └── package.json
-│   └── pom.xml
-├── backend/
-│   ├── src/main/java/org.example/project/
-│   │   └── ApiResource.java
-│   └── pom.xml
-└── distribution/
-    └── pom.xml
-```
+It is automatically opened when accessing the URL http://localhost:8080.
 
 ## Creating the Java code
 
@@ -75,12 +57,12 @@ By analyzing the provided document, the main takeaways from the challenge were t
 - Implement a REST Service, using the Quarkus Java Framework;
 - This service returned a value from the labseq sequence;
 - The way the sequence of values works if defined by:
-    - n=0 -> *l(0) = 0* 
-    - n=1 -> *l(1) = 1* 
-    - n=2 -> *l(2) = 0* 
-    - n=3 -> *l(3) = 1* 
-    - n>3 -> *l(n) = l(n-4) + l(n-3)*
-- The endpoint created should be in the form <baseurl>/labseq/{n} where {n} represents the index of the sequence’s value to return;
+    - `n=0 -> l(0) = 0`
+    - `n=1 -> l(1) = 1`
+    - `n=2 -> l(2) = 0` 
+    - `n=3 -> l(3) = 1` 
+    - `n>3 -> l(n) = l(n-4) + l(n-3)`
+- The endpoint created should be in the form `<baseurl>/labseq/{n}` where `n` represents the index of the sequence’s value to return;
 - The implemented service should use a caching mechanism;
 - The calculation of `l(10000)` must be correctly returned in under 10s.
 
@@ -116,11 +98,10 @@ When creating the algorithm to calculate the sequence, the method of the class `
 
 This method is being used recursively.
 
-It first checks if the value of *n* is lesser or equal to 3 (*n<=3*), as seen in line 3. 
+It first checks if `n<=3`, as seen in line 3. 
 
-If so it gives the direct answer as provided by the source document.
-
-If it is not, then the formula is applied (*l(n-4) + l(n-3)*) calling itself again with the new values of *n*.
+- If so it gives the direct answer as provided by the source document.
+- If it is not, then the formula `l(n-4) + l(n-3)` is applied, calling `breakdown(int n)` recursively with the new values of `n`.
 
 > **_NOTE:_** This formula implementation can be seen in line 9. Since its a BigInteger it is required to use the add() method to perform a sum.
 
@@ -128,9 +109,9 @@ If it is not, then the formula is applied (*l(n-4) + l(n-3)*) calling itself aga
 
 When the recursive function ends, it goes back and adds the value to the map using its respective *keys* and *values*.
 
-For this to work though, it requires the method *breakdown* to check the Map every time it is executed, looking within the **cache** for the respective *key*.
+For this to work though, it requires the method `breakdown` to check the `Map` every time it is executed, looking within the `cache` for the respective *key*.
 
-If it find the *key*, then the *value* is returned immediately, otherwise the execution continues as previously explained.
+If it finds the *key*, then the *value* is returned immediately, otherwise the execution continues as previously explained.
 
 ## Solution
 
@@ -138,4 +119,4 @@ The solution to the the function `l(10000)` is presented below.
 
 > **_NOTE:_** Due to the size of the result, the code had to be adapted to use BigInteger (32 bit) so that the number could be calculated properly.
 
-**l(10000) = 69950566878097184013157744477635556727868849589082998911839343197880823215346221009722233023943602770307729191665655398407165768121564186987192397693071609846919453430811144389823875683774480880281479951416523467736343974525549960389427464841013320746241755697990287429747307066048835194835534301361435435171244963037487135503198565459610125773779110841477593382691667903942271834984619627946845583317271714790127086723614783681640902031022970893247841818337935296805019561967546398282596597404334400595273408222818081762762981879844447410743730739725556081175617700994424267694361314464204552899258977619983936670456553201627025301979470684612183482967552781789171894406131379502874476544298881442363169258726593616997962614541232149734611181684936265928412294383549494959124156102645749161099774806409315657803977415799277767229630141831326718534674913706653355139**
+`l(10000) = 69950566878097184013157744477635556727868849589082998911839343197880823215346221009722233023943602770307729191665655398407165768121564186987192397693071609846919453430811144389823875683774480880281479951416523467736343974525549960389427464841013320746241755697990287429747307066048835194835534301361435435171244963037487135503198565459610125773779110841477593382691667903942271834984619627946845583317271714790127086723614783681640902031022970893247841818337935296805019561967546398282596597404334400595273408222818081762762981879844447410743730739725556081175617700994424267694361314464204552899258977619983936670456553201627025301979470684612183482967552781789171894406131379502874476544298881442363169258726593616997962614541232149734611181684936265928412294383549494959124156102645749161099774806409315657803977415799277767229630141831326718534674913706653355139`
