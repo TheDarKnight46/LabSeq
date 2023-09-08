@@ -18,11 +18,13 @@ iex "& { $(iwr https://ps.jbang.dev) } app install --fresh --force quarkus@quark
 
 ## Starting Application
 
+Download the code in the repository. After that, open a terminal within that folder and run the following command.  
+
 ```shell script
 quarkus dev
 ```
 > [!IMPORTANT]
-> After installing Quakus this is the only step required to execute this application.
+> This is the only step required to execute this application.
 
 ## Backend - Creating the Quarkus application
 
