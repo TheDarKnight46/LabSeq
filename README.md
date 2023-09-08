@@ -108,7 +108,7 @@ To understand how the sequence works, firstly some by hand calculations were per
 
 Caching was an important step since by saving the result of already calculated `l(n)` the processing load and time required would be cut **tremendously**.
 
-The best way to store data like this is by using a `Map` where the '*keys*' are the values of `n` and the '*values*' are the values of `l(n)`. This variable is called `cache`.
+The best way to store data like this is by using a `Map` where the '*keys*' are the values of `n` and the '*values*' are the result of `l(n)`. This variable is called `cache`.
 
 ### Using recursive functions
 
