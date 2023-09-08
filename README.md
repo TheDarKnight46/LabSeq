@@ -21,8 +21,10 @@ iex "& { $(iwr https://ps.jbang.dev) } app install --fresh --force quarkus@quark
 ```shell script
 quarkus dev
 ```
+> [!IMPORTANT]
+> After installing Quakus this is the only step required to execute this application.
 
-## Backend - Quarkus
+## Backend - Creating the Quarkus application
 
 After installing the CLI, the next step is to create an application. This can be done by using the following command:
 
@@ -32,13 +34,11 @@ quarkus create labseq
 > [!NOTE]
 > Not required if the application is already created.
 
-With the application created, enter its directory and run it using the following command:
+With the application created, enter its directory `labseq` and run it using the following command:
 
 ```shell script
 quarkus dev
 ```
-> [!IMPORTANT]
-> After installing and creating a Quakus application this is the only step required to execute the application.
 
 or alternatively, if `Maven` is installed and configured:
 
@@ -51,6 +51,14 @@ mvn compile quarkus:dev
 The Quarkus app is now running at http://localhost:8080.
 
 Inserting the number in the number box of the GUI and pressing `Calculate` will make a call to the service and the result will appear.
+
+## Frontend - Creating GUI using HTML and JavaScript
+
+HTML and JavaScript were used to create the frontend of the service, directly in the `index.html` file.
+
+The only purpose of this GUI is to call the service via its **endpoint**.
+
+It is presented when accessing http://localhost:8080.
 
 ## REST API Documentation
 
@@ -86,14 +94,6 @@ http://localhost:8080/q/openapi
 This results in a file named `openapi`. This file is then added to SwaggerHub and synced, and merged with the Github branch.
 
 SwaggerHub URL: https://app.swaggerhub.com/apis/TheDarKnight46/Labseq/1.0.0-SNAPSHOT
-
-## Frontend - HTML and JavaScript
-
-HTML and JavaScript were used to create the frontend of the service, directly in the `index.html` file.
-
-The only purpose of this GUI is to call the service via its **endpoint**.
-
-It is presented when accessing http://localhost:8080.
 
 > [!IMPORTANT]
 > From this point on, the thought process used while developing will be explained. The Solution found is at the end
