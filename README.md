@@ -42,9 +42,9 @@ mvn compile quarkus:dev
 > [!NOTE]
 > To configure maven, follow the README file bundled with the maven download or this guide for Windows https://phoenixnap.com/kb/install-maven-windows.
 
-The Quarkus app is now running at http://localhost:8080. For the purposes of this challenge neither the IP nor the Port were changed.
+The Quarkus app is now running at http://localhost:8080.
 
-Inserting the number in the number box of the GUI and pressing calculate will make a call to the service and the result will appear.
+Inserting the number in the number box of the GUI and pressing `Calculate` will make a call to the service and the result will appear.
 
 ## REST API Documentation
 
