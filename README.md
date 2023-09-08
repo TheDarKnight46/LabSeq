@@ -16,9 +16,15 @@ iex "& { $(iwr https://ps.jbang.dev) } trust add https://repo1.maven.org/maven2/
 iex "& { $(iwr https://ps.jbang.dev) } app install --fresh --force quarkus@quarkusio"
 ```
 
+## Starting Application
+
+```shell script
+quarkus dev
+```
+
 ## Backend - Quarkus
 
-After installing the CLI, the next step is to create an Application. This can be done by using the following command:
+After installing the CLI, the next step is to create an application. This can be done by using the following command:
 
 ```shell script
 quarkus create labseq
@@ -32,7 +38,7 @@ With the application created, enter its directory and run it using the following
 quarkus dev
 ```
 > [!IMPORTANT]
-> After installing Quakus this is the only step required to execute the application.
+> After installing and creating a Quakus application this is the only step required to execute the application.
 
 or alternatively, if `Maven` is installed and configured:
 
