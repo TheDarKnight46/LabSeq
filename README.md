@@ -35,7 +35,8 @@ or alternatively, if `Maven` is installed and configured:
 ```shell script
 mvn compile quarkus:dev
 ```
-> **_NOTE:_** To configure maven, follow the README file bundled with the maven download or this guide for Windows https://phoenixnap.com/kb/install-maven-windows.
+> [!NOTE]
+> To configure maven, follow the README file bundled with the maven download or this guide for Windows https://phoenixnap.com/kb/install-maven-windows.
 
 The Quarkus app is now running at http://localhost:8080. For the purposes of this challenge neither the IP nor the Port were changed.
 
@@ -74,6 +75,8 @@ http://localhost:8080/q/openapi
 
 This results in a file named `openapi`. This file is then added to SwaggerHub and synced, and merged with the Github branch.
 
+SwaggerHub URL: https://app.swaggerhub.com/apis/TheDarKnight46/Labseq/1.0.0-SNAPSHOT
+
 ## Frontend - HTML and JavaScript
 
 HTML and JavaScript were used to create the frontend of the service, directly in the `index.html` file.
@@ -82,8 +85,8 @@ The only purpose of this GUI is to call the service via its **endpoint**.
 
 It is presented when accessing http://localhost:8080.
 
-
-==From this point on, the thought process used while developing will be explained. The Solution found is at the end==
+> [!IMPORTANT]
+> From this point on, the thought process used while developing will be explained. The Solution found is at the end
 
 ## Creating the Java code
 
@@ -137,7 +140,8 @@ It first checks if `n<=3`, as seen in line 3.
 - If so it gives the direct answer as provided by the source document.
 - If it is not, then the formula `l(n-4) + l(n-3)` is applied, calling `breakdown(int n)` recursively with the new values of `n`.
 
-> **_NOTE:_** This formula implementation can be seen in line 9. Since its a BigInteger it is required to use the add() method to perform a sum.
+> [!NOTE]
+> This formula implementation can be seen in line 9. Since its a BigInteger it is required to use the add() method to perform a sum.
 
 When a result is calculated, the `cacheValue(int key, BigInteger value)` method is used to add it to the `cache` **Map**.
 
@@ -153,6 +157,7 @@ If it finds the *key*, then the *value* is returned immediately, otherwise the e
 
 The solution to the the function `l(10000)` is presented below.
 
-> **_NOTE:_** Due to the size of the result, the code had to be adapted to use BigInteger (32 bit) so that the number could be calculated properly.
+> [!NOTE]
+> Due to the size of the result, the code had to be adapted to use BigInteger (32 bit) so that the number could be calculated properly.
 
 **l(10000) = 69950566878097184013157744477635556727868849589082998911839343197880823215346221009722233023943602770307729191665655398407165768121564186987192397693071609846919453430811144389823875683774480880281479951416523467736343974525549960389427464841013320746241755697990287429747307066048835194835534301361435435171244963037487135503198565459610125773779110841477593382691667903942271834984619627946845583317271714790127086723614783681640902031022970893247841818337935296805019561967546398282596597404334400595273408222818081762762981879844447410743730739725556081175617700994424267694361314464204552899258977619983936670456553201627025301979470684612183482967552781789171894406131379502874476544298881442363169258726593616997962614541232149734611181684936265928412294383549494959124156102645749161099774806409315657803977415799277767229630141831326718534674913706653355139**
