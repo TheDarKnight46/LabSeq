@@ -2,8 +2,6 @@
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
-If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
-
 The following text represents the steps taken to reach the final product.
 
 ## Installing Quarkus
@@ -49,7 +47,7 @@ An account was created in `SwaggerHub` to be able to use the web application.
 
 To expose the Open API Specifications this guide was used: https://quarkus.io/guides/openapi-swaggerui.
 
-To add the Quarkus provided Smallrye OpenAPI extension used the the following commands:
+To add the Quarkus provided Smallrye OpenAPI extension the following command was used:
 
 ```shell script
 quarkus extension add 'quarkus-smallrye-openapi'
@@ -70,19 +68,22 @@ Run the Quarkus app.
 quarkus dev
 ```
 
-Once the application has started, make a request to `localhost:8080/q/openapi` endpoint. This results in a file named `openapi`.
+Once the application has started, make a request to the endpoint: 
 
-This file is then added to SwaggerHub and synced, and merged with the Github branch.
+http://localhost:8080/q/openapi
 
-#### From this point on, the thought process used while developing will be explained. The Solution found is at the end
+This results in a file named `openapi`. This file is then added to SwaggerHub and synced, and merged with the Github branch.
 
 ## Frontend - HTML and JavaScript
 
-HTML and JavaScript were used to create the frontend of the service, directly in `index.html` file.
+HTML and JavaScript were used to create the frontend of the service, directly in the `index.html` file.
 
 The only purpose of this GUI is to call the service via its **endpoint**.
 
-It is automatically opened when accessing the URL http://localhost:8080.
+It is presented when accessing http://localhost:8080.
+
+
+== From this point on, the thought process used while developing will be explained. The Solution found is at the end ==
 
 ## Creating the Java code
 
@@ -103,11 +104,11 @@ By analyzing the provided document, the main takeaways from the challenge were t
 
 ### Understanding the sequence
 
-To understand how the sequence works, firstly some by hand calculations were performed. It became clear that the way larger numbers were calculated was by slowly reducing their size until it was either 0,1,2 or 3.
+To understand how the sequence works, firstly some by hand calculations were performed. It became clear that larger numbers were calculated by slowly reducing their size until they were either 0,1,2 or 3.
 
 Caching was an important step since by saving the result of already calculated `l(n)` the processing load and time required would be cut **tremendously**.
 
-The best way to store data like this is by using a `Map` where the '*keys*' are the values of *n* and the '*values*' are the values of `l(n)`. This variable is called `cache`.
+The best way to store data like this is by using a `Map` where the '*keys*' are the values of `n` and the '*values*' are the values of `l(n)`. This variable is called `cache`.
 
 ### Using recursive functions
 
