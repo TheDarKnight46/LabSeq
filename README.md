@@ -26,11 +26,13 @@ quarkus create labseq
 > [!NOTE]
 > Not required if the application is already created.
 
-After creating the application or if it is already created, enter the directory `labseq` and run it using the following command:
+With the application created, enter its directory and run it using the following command:
 
 ```shell script
 quarkus dev
 ```
+> [!IMPORTANT]
+> After installing Quakus this is the only step required to execute the application.
 
 or alternatively, if `Maven` is installed and configured:
 
