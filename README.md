@@ -6,7 +6,7 @@ The following text represents the steps taken to reach the final product.
 
 ## Installing Quarkus
 
-Following the guide provided in the website: https://quarkus.io/get-started/, the Quarkus CLI was installed for Powershell using:
+Following the guide provided in the website: https://quarkus.io/get-started/, the Quarkus CLI was installed for Windows using:
 
 ```shell script
 iex "& { $(iwr https://ps.jbang.dev) } trust add https://repo1.maven.org/maven2/io/quarkus/quarkus-cli/"
